@@ -202,7 +202,7 @@ nav a:hover {
   justify-content: center;
 }
 
-/* ✅ CLEAN SIDEBAR (NO CARD LOOK) */
+/* CLEAN SIDEBAR */
 .skills-sidebar {
   position: sticky;
   top: 160px;
@@ -288,10 +288,78 @@ body::before {
 }
 
 /* =========================
+   MODAL POPUP
+========================= */
+.modal {
+  display: none; /* hidden by default */
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background-color: #0a0f1ca8;
+  margin: auto; /* vertically & horizontally centered */
+  top: 50%;
+  transform: translateY(0);
+  padding: 30px 20px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+.modal-content h3 {
+  margin-bottom: 25px;
+  color: #ffffff;
+}
+
+.modal-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  justify-content: center;
+}
+
+.modal-buttons a {
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #4fc3ff, #1e90ff);
+  color: white;
+  font-weight: 500;
+  flex: 1; /* equal width */
+  text-align: center;
+  transition: 0.3s;
+}
+
+.modal-buttons a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 18px rgba(79,195,255,0.4);
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* =========================
    MOBILE STYLES
 ========================= */
-@media(max-width: 900px) {
-
+@media(max-width: 900px){
   header {
     padding: 20px;
   }
@@ -331,19 +399,16 @@ body::before {
     font-size: 18px;
   }
 
-  /* =========================
-     HERO SECTION MOBILE FIX
-  ========================= */
   .hero-name {
-    font-size: 42px; /* restored mobile-friendly size */
+    font-size: 42px;
   }
 
   .hero-role {
-    font-size: 22px; /* restored mobile-friendly size */
+    font-size: 22px;
   }
 
   .content p {
-    font-size: 15px; /* restored mobile-friendly size */
+    font-size: 15px;
   }
 
   .cta {
@@ -365,5 +430,21 @@ body::before {
 
   .skills-sidebar {
     display: none;
+  }
+
+  /* Modal adjustments */
+  .modal-content {
+    width: 95%;
+    max-width: 350px;
+    padding: 25px 15px;
+  }
+
+  .modal-buttons a {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .modal-buttons {
+    flex-direction: row;
   }
 }

@@ -167,3 +167,34 @@ window.addEventListener("scroll", () => {
   const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
   document.body.style.setProperty("--scroll", (scrollTop / docHeight) * 100 + "%");
 });
+
+/* ===============================
+   CV MODAL LOGIC
+=============================== */
+document.addEventListener('DOMContentLoaded', () => {
+  const cvBtn = document.getElementById('cvBtn');
+  const cvModal = document.getElementById('cvModal');
+  const closeBtn = document.querySelector('.modal .close');
+
+  if (!cvBtn || !cvModal) return;
+
+  // Open modal only on button click
+  cvBtn.addEventListener('click', (e) => {
+    e.preventDefault(); // Prevent default link behavior
+    cvModal.style.display = 'flex';
+  });
+
+  // Close modal on close button click
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      cvModal.style.display = 'none';
+    });
+  }
+
+  // Close modal if clicking outside content
+  window.addEventListener('click', (e) => {
+    if (e.target === cvModal) {
+      cvModal.style.display = 'none';
+    }
+  });
+});
