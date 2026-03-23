@@ -377,7 +377,7 @@ body::before {
     top: 60px;
     right: -60%;
     width: 60%;
-    max-width: 300px;
+    max-width: 150px;
     height: auto;
     background: rgba(10, 15, 28, 0.973);
     backdrop-filter: blur(10px);
