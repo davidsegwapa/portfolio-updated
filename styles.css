@@ -20,7 +20,7 @@ body {
 }
 
 /* =========================
-   HEADER / NAVBAR
+   HEADER / NAVBAR (FIXED CENTER)
 ========================= */
 header {
   display: flex;
@@ -30,8 +30,12 @@ header {
   position: fixed;
   width: 100%;
   z-index: 1002;
-  background: rgba(10,15,28,0.6); /* original navbar with slight transparency */
+  background: rgba(10,15,28,0.6);
   backdrop-filter: blur(10px);
+}
+
+.logo {
+  flex: 1;
 }
 
 .logo img {
@@ -42,6 +46,8 @@ header {
 nav {
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex: 1;
 }
 
 nav a {
@@ -57,9 +63,10 @@ nav a:hover {
   transform: translateX(5px);
 }
 
-/* NAV BUTTON */
 .buttons {
+  flex: 1;
   display: flex;
+  justify-content: flex-end;
 }
 
 .btn {
@@ -82,7 +89,6 @@ nav a:hover {
   box-shadow: 0 6px 16px rgba(0,0,0,0.4);
 }
 
-/* MOBILE MENU ICON */
 .menu-toggle {
   display: none;
   font-size: 26px;
@@ -174,7 +180,6 @@ nav a:hover {
   box-shadow: 0 0 18px rgba(79, 195, 255, 0.4);
 }
 
-/* SCROLL INDICATOR */
 .scroll-indicator {
   position: absolute;
   bottom: 20px;
@@ -197,15 +202,16 @@ nav a:hover {
   justify-content: center;
 }
 
-/* SIDEBAR */
+/* ✅ CLEAN SIDEBAR (NO CARD LOOK) */
 .skills-sidebar {
   position: sticky;
-  top: 160px; /* below navbar */
+  top: 160px;
   min-width: 260px;
-  background: #0a0f1c; /* solid color, no blur, nothing behind visible */
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4); /* optional depth */
+
+  background: transparent;   /* removed solid block feel */
+  border-radius: 0;          /* removed rounded corners */
+  padding: 0;                /* removed inner spacing */
+  box-shadow: none;          /* removed shadow */
 }
 
 .skills-sidebar h2 {
@@ -299,10 +305,9 @@ body::before {
     display: none;
   }
 
-  /* MOBILE NAVIGATION RIGHT SIDEBAR */
   nav {
     position: fixed;
-    top: 60px; /* below header */
+    top: 60px;
     right: -60%;
     width: 60%;
     max-width: 300px;
@@ -325,44 +330,6 @@ body::before {
   nav a {
     margin: 15px 0;
     font-size: 18px;
-    padding-left: 5px;
-    color: #cfcfcf;
-    text-decoration: none;
-    transition: 0.3s;
-  }
-
-  nav a:hover {
-    color: #00c6ff;
-    transform: translateX(5px);
-  }
-
-  .hero-name {
-    font-size: 42px;
-  }
-
-  .hero-role {
-    font-size: 22px;
-  }
-
-  #typing {
-    width: 12ch;
-    font-size: 20px;
-  }
-
-  .content p {
-    font-size: 15px;
-  }
-
-  .cta {
-    flex-direction: row;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .cta .btn {
-    padding: 10px 14px;
-    font-size: 14px;
-    min-width: 120px;
   }
 
   .skills-section {
@@ -372,27 +339,5 @@ body::before {
 
   .skills-sidebar {
     display: none;
-  }
-
-  .skills-content {
-    width: 100%;
-  }
-
-  .skill-block {
-    margin-bottom: 70px;
-    padding-bottom: 40px;
-  }
-
-  .skill-block h3 {
-    font-size: 24px;
-  }
-
-  .skill-block p {
-    font-size: 15px;
-  }
-
-  .scroll-indicator {
-    bottom: 15px;
-    font-size: 12px;
   }
 }
