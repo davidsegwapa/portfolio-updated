@@ -207,11 +207,10 @@ nav a:hover {
   position: sticky;
   top: 160px;
   min-width: 260px;
-
-  background: transparent;   /* removed solid block feel */
-  border-radius: 0;          /* removed rounded corners */
-  padding: 0;                /* removed inner spacing */
-  box-shadow: none;          /* removed shadow */
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
 }
 
 .skills-sidebar h2 {
@@ -330,6 +329,33 @@ body::before {
   nav a {
     margin: 15px 0;
     font-size: 18px;
+  }
+
+  /* =========================
+     HERO SECTION MOBILE FIX
+  ========================= */
+  .hero-name {
+    font-size: 42px; /* restored mobile-friendly size */
+  }
+
+  .hero-role {
+    font-size: 22px; /* restored mobile-friendly size */
+  }
+
+  .content p {
+    font-size: 15px; /* restored mobile-friendly size */
+  }
+
+  .cta {
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .cta .btn {
+    padding: 10px 14px;
+    font-size: 14px;
+    min-width: 120px;
   }
 
   .skills-section {
