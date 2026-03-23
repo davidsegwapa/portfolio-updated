@@ -448,3 +448,232 @@ body::before {
     flex-direction: row;
   }
 }
+
+/* =========================
+   HIRE SECTION (UPGRADED PREMIUM UI - FINAL FIXED)
+========================= */
+
+.hire-section {
+  padding: 140px 5%;
+  display: flex;
+  justify-content: center;
+  background: radial-gradient(circle at top, rgba(0,198,255,0.08), transparent 60%);
+}
+
+.hire-container {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+/* TITLE */
+.hire-title {
+  font-size: 46px;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+/* VALUE TEXT */
+.hire-value {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #d6d6d6;
+  max-width: 750px;
+  margin: 0 auto 25px auto;
+}
+
+/* STATUS CARD */
+.hire-status-card {
+  margin: 25px auto;
+  padding: 18px 20px;
+  max-width: 420px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+  animation: fadeUp 1s ease forwards;
+}
+
+.hire-status-card p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #eaeaea;
+}
+
+/* CONTACT BUTTONS */
+.hire-contact-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin: 35px 0;
+}
+
+.hire-contact-buttons a {
+  transition: 0.3s ease;
+}
+
+.hire-contact-buttons a:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px rgba(79, 195, 255, 0.35);
+}
+
+/* =========================
+   FORM WRAPPER (CENTERING + SPACING FIX)
+========================= */
+
+.book-call-form-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  padding: 0 20px; /* better side spacing */
+}
+
+/* FORM CARD */
+.book-call-form {
+  width: 100%;
+  max-width: 650px;
+  padding: 34px 30px;
+
+  border-radius: 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 35px rgba(0,0,0,0.4);
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0 auto;
+}
+
+/* FORM TITLE */
+.book-call-form h3 {
+  margin-bottom: 6px;
+  color: #ffffff;
+  font-size: 22px;
+}
+
+/* INPUTS */
+.book-call-form input {
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: 10px;
+
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(10,15,28,0.6);
+
+  color: white;
+  caret-color: white;
+
+  outline: none;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+/* INPUT FOCUS */
+.book-call-form input:focus {
+  border-color: #4fc3ff;
+  box-shadow: 0 0 10px rgba(79,195,255,0.25);
+}
+
+/* DATE + TIME ROW */
+.form-row {
+  display: flex;
+  gap: 14px;
+}
+
+.form-row input {
+  flex: 1;
+}
+
+/* =========================
+   FIX CALENDAR + CLOCK ICON (WHITE)
+========================= */
+
+input[type="date"],
+input[type="time"] {
+  color-scheme: dark;
+}
+
+/* STRONG ICON FIX */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(1) brightness(2);
+  opacity: 1;
+  cursor: pointer;
+}
+
+/* BUTTON */
+.schedule-btn {
+  padding: 13px;
+  margin-top: 6px;
+
+  border-radius: 10px;
+  border: none;
+
+  cursor: pointer;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  color: white;
+
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.schedule-btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 15px rgba(0,198,255,0.3);
+}
+
+/* FINAL CTA */
+.hire-final-cta {
+  margin-top: 40px;
+  font-size: 16px;
+  color: #cfcfcf;
+  font-style: italic;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+  .hire-title {
+    font-size: 32px;
+  }
+
+  .hire-value {
+    font-size: 15px;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .book-call-form {
+    padding: 24px;
+    max-width: 100%;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
