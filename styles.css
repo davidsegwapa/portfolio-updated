@@ -16,6 +16,7 @@ html {
 body {
   background: #0a0f1c;
   color: white;
+  overflow-x: hidden;
 }
 
 /* =========================
@@ -28,8 +29,8 @@ header {
   padding: 25px 80px;
   position: fixed;
   width: 100%;
-  z-index: 1000;
-  background: rgba(10,15,28,0.6);
+  z-index: 1002;
+  background: rgba(10,15,28,0.6); /* original navbar with slight transparency */
   backdrop-filter: blur(10px);
 }
 
@@ -52,7 +53,8 @@ nav a {
 }
 
 nav a:hover {
-  color: #fff;
+  color: #00c6ff;
+  transform: translateX(5px);
 }
 
 /* NAV BUTTON */
@@ -85,6 +87,8 @@ nav a:hover {
   display: none;
   font-size: 26px;
   cursor: pointer;
+  color: #fff;
+  z-index: 1003;
 }
 
 /* =========================
@@ -131,7 +135,6 @@ nav a:hover {
   font-size: 36px;
 }
 
-/* FIXED TYPING (NO SHIFT) */
 #typing {
   display: inline-block;
   width: 18ch;
@@ -148,7 +151,6 @@ nav a:hover {
   max-width: 700px;
 }
 
-/* CTA BUTTONS */
 .cta {
   display: flex;
   gap: 15px;
@@ -198,8 +200,12 @@ nav a:hover {
 /* SIDEBAR */
 .skills-sidebar {
   position: sticky;
-  top: 140px;
+  top: 160px; /* below navbar */
   min-width: 260px;
+  background: #0a0f1c; /* solid color, no blur, nothing behind visible */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4); /* optional depth */
 }
 
 .skills-sidebar h2 {
@@ -277,31 +283,12 @@ body::before {
 }
 
 /* =========================
-   MOBILE
+   MOBILE STYLES
 ========================= */
 @media(max-width: 900px) {
 
   header {
     padding: 20px;
-  }
-
-  nav {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background: #0a0f1c;
-    flex-direction: column;
-    display: none;
-    align-items: center;
-  }
-
-  nav.active {
-    display: flex;
-  }
-
-  nav a {
-    margin: 15px 0;
   }
 
   .menu-toggle {
@@ -310,6 +297,43 @@ body::before {
 
   .buttons {
     display: none;
+  }
+
+  /* MOBILE NAVIGATION RIGHT SIDEBAR */
+  nav {
+    position: fixed;
+    top: 60px; /* below header */
+    right: -60%;
+    width: 60%;
+    max-width: 300px;
+    height: auto;
+    background: rgba(10, 15, 28, 0.973);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px 20px;
+    margin-top: 37px;
+    transition: right 0.35s ease;
+    border-radius: 15px 0 0 15px;
+    z-index: 1003;
+  }
+
+  nav.active {
+    right: 0;
+  }
+
+  nav a {
+    margin: 15px 0;
+    font-size: 18px;
+    padding-left: 5px;
+    color: #cfcfcf;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+
+  nav a:hover {
+    color: #00c6ff;
+    transform: translateX(5px);
   }
 
   .hero-name {
@@ -329,7 +353,6 @@ body::before {
     font-size: 15px;
   }
 
-  /* FIX BUTTONS SIDE-BY-SIDE */
   .cta {
     flex-direction: row;
     justify-content: center;
@@ -342,7 +365,6 @@ body::before {
     min-width: 120px;
   }
 
-  /* SKILLS STACK */
   .skills-section {
     flex-direction: column;
     padding: 100px 6%;
@@ -369,28 +391,8 @@ body::before {
     font-size: 15px;
   }
 
-  /* SCROLL TEXT FIX */
   .scroll-indicator {
     bottom: 15px;
     font-size: 12px;
   }
-}
-
-/* DEFAULT (DESKTOP) — NORMAL TEXT */
-.reveal-text span {
-  opacity: 1;
-}
-
-/* ONLY MOBILE EFFECT */
-@media(max-width: 900px) {
-
-  .reveal-text span {
-    opacity: 0.2;
-    transition: opacity 0.2s linear;
-  }
-
-  .reveal-text span.active {
-    opacity: 1;
-  }
-
 }

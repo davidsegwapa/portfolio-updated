@@ -1,4 +1,3 @@
-
 /* ===============================
    HERO FADE-IN SEQUENCE
 =============================== */
@@ -24,27 +23,41 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-
 /* ===============================
-   MOBILE MENU TOGGLE
+   MOBILE MENU TOGGLE WITH OVERLAY
 =============================== */
 const menuToggle = document.getElementById('menu-toggle');
 const nav = document.getElementById('nav');
+const navLinks = document.querySelectorAll('#nav a');
+const overlay = document.getElementById('overlay');
 
-if (menuToggle && nav) {
+if (menuToggle && nav && overlay) {
   menuToggle.addEventListener('click', () => {
     nav.classList.toggle('active');
+    overlay.classList.toggle('active');
   });
 }
 
+// Auto-close menu when a link is clicked
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('active');
+    overlay.classList.remove('active');
+  });
+});
+
+// Close menu if overlay is clicked
+overlay.addEventListener('click', () => {
+  nav.classList.remove('active');
+  overlay.classList.remove('active');
+});
 
 /* ===============================
-   SMOOTH SCROLL FIX
+   SMOOTH SCROLL
 =============================== */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     const target = document.querySelector(this.getAttribute('href'));
-
     if (target) {
       e.preventDefault();
       target.scrollIntoView({
@@ -55,54 +68,38 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-
 /* ===============================
    SCROLL INDICATOR FADE
 =============================== */
 const scrollIndicator = document.querySelector('.scroll-indicator');
-
 window.addEventListener('scroll', () => {
   if (!scrollIndicator) return;
   scrollIndicator.style.opacity = window.scrollY > 100 ? '0' : '1';
 });
 
-
 /* ===============================
    HERO PARALLAX EFFECT
 =============================== */
 const hero = document.querySelector('.hero');
-
 window.addEventListener('scroll', () => {
   if (!hero) return;
   hero.style.backgroundPositionY = window.scrollY * 0.3 + 'px';
 });
 
-
 /* ===============================
-   TYPING ANIMATION (FIXED + LOOP)
+   TYPING ANIMATION (LOOP)
 =============================== */
 const typingEl = document.getElementById("typing");
-
-const roles = [
-  "Full-Stack Engineer",
-  "Frontend Developer",
-  "Backend Developer"
-];
-
-let roleIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
+const roles = ["Full-Stack Engineer", "Frontend Developer", "Backend Developer"];
+let roleIndex = 0, charIndex = 0, isDeleting = false;
 
 function typeLoop() {
   if (!typingEl) return;
 
   const currentRole = roles[roleIndex];
 
-  if (!isDeleting) {
-    charIndex++;
-  } else {
-    charIndex--;
-  }
+  if (!isDeleting) charIndex++;
+  else charIndex--;
 
   typingEl.textContent = currentRole.substring(0, charIndex);
 
@@ -112,7 +109,6 @@ function typeLoop() {
     isDeleting = true;
     speed = 1200;
   }
-
   if (isDeleting && charIndex === 0) {
     isDeleting = false;
     roleIndex = (roleIndex + 1) % roles.length;
@@ -121,76 +117,53 @@ function typeLoop() {
 
   setTimeout(typeLoop, speed);
 }
-
 typeLoop();
-
 
 /* ===============================
    SKILLS FADE-IN ON SCROLL
 =============================== */
 const skillBlocks = document.querySelectorAll('.skill-block');
-
-const skillObserver = new IntersectionObserver((entries) => {
+const skillObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-    }
+    if (entry.isIntersecting) entry.target.classList.add('show');
   });
 }, { threshold: 0.2 });
-
 skillBlocks.forEach(block => skillObserver.observe(block));
-
 
 /* ===============================
    SIDEBAR ACTIVE LINK TRACKING
 =============================== */
 const sidebarLinks = document.querySelectorAll('.skills-sidebar a');
-
 window.addEventListener('scroll', () => {
   let current = "";
-
   skillBlocks.forEach(block => {
     const rect = block.getBoundingClientRect();
-
-    if (rect.top <= 200 && rect.bottom >= 200) {
-      current = block.id;
-    }
+    if (rect.top <= 200 && rect.bottom >= 200) current = block.id;
   });
 
   sidebarLinks.forEach(link => {
     link.classList.remove('active');
-
-    if (link.getAttribute('href') === `#${current}`) {
-      link.classList.add('active');
-    }
+    if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
   });
 });
-
 
 /* ===============================
    BUTTON HOVER GLOW EFFECT
 =============================== */
 document.querySelectorAll('.btn').forEach(btn => {
   btn.addEventListener('mouseenter', () => {
-    btn.style.boxShadow = '0 0 18px rgba(0, 198, 255, 0.4)';
+    btn.style.boxShadow = '0 0 18px rgba(0,198,255,0.4)';
   });
-
   btn.addEventListener('mouseleave', () => {
     btn.style.boxShadow = 'none';
   });
 });
 
-
 /* ===============================
-   SCROLL PROGRESS BAR (FIXED)
+   SCROLL PROGRESS BAR
 =============================== */
 window.addEventListener("scroll", () => {
   const scrollTop = document.documentElement.scrollTop;
-  const docHeight =
-    document.documentElement.scrollHeight -
-    document.documentElement.clientHeight;
-
-  const progress = (scrollTop / docHeight) * 100;
-
-  document.body.style.setProperty("--scroll", progress + "%");
+  const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  document.body.style.setProperty("--scroll", (scrollTop / docHeight) * 100 + "%");
 });
