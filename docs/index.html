@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>David Segwapa | Full-Stack Software Engineer</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<!-- ================= AUTH SCREEN ================= -->
+<div id="authScreen" class="auth-body" style="display:flex;">
+
+  <div class="auth-container">
+
+    <!-- LOGIN -->
+    <div class="auth-box" id="loginBox">
+
+      <h2>Welcome Back</h2>
+      <p class="auth-subtext">Login to continue to your dashboard</p>
+
+      <input type="email" id="loginEmail" placeholder="Email">
+      <input type="password" id="loginPassword" placeholder="Password">
+
+      <button onclick="login()">Sign In</button>
+
+      <div class="auth-switch">
+        <p>
+          Don’t have an account?
+          <a href="#" onclick="showSignup()">Create account</a>
+        </p>
+      </div>
+
+    </div>
+
+    <!-- SIGNUP -->
+    <div class="auth-box" id="signupBox" style="display:none;">
+
+      <h2>Create Account</h2>
+      <p class="auth-subtext">Join and start building with David</p>
+
+      <input type="text" id="signupName" placeholder="Full Name">
+      <input type="email" id="signupEmail" placeholder="Email">
+      <input type="password" id="signupPassword" placeholder="Password">
+
+      <button onclick="signup()">Create Account</button>
+
+      <div class="auth-switch">
+        <p>
+          Already have an account?
+          <a href="#" onclick="showLogin()">Sign in</a>
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- ================= MAIN SITE ================= -->
+<div id="mainSite" style="display:none;">
+
+<header>
+  <div class="logo">
+    <img src="Images/ChatGPT Image Mar 22, 2026, 08_32_22 PM.png" alt="DavidDev Logo">
+  </div>
+
+  <nav id="nav">
+    <a href="#home">Home</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+    <a href="#expertise">Expertise</a>
+    <a href="#hire">Contact</a>
+
+    <a href="#" onclick="logout()">Logout</a>
+  </nav>
+
+  <div id="overlay"></div>
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="content">
+    <p class="hero-intro">Hello, I'm</p>
+    <h1 class="hero-name">David Segwapa</h1>
+    <h2 class="hero-role">
+      I am a <span id="typing"></span>
+    </h2>
+
+    <p class="scroll-text">
+      I build scalable and efficient software solutions across web, desktop, and cloud platforms.
+      With a Bachelor of Information Technology, I focus on building real-world systems that are fast, clean, and scalable.
+    </p>
+
+    <div class="cta">
+      <a href="#hire" class="btn gradient">Hire Me</a>
+      <a href="#" class="btn gradient" id="cvBtn">Download CV</a>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">↓ Scroll</div>
+</section>
+
+<!-- CV MODAL -->
+<div id="cvModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3>What would you like to do?</h3>
+    <div class="modal-buttons">
+      <a href="Documents/David Segwapa Resume.pdf" download class="btn gradient modal-btn">Download CV</a>
+      <a href="Documents/David Segwapa Resume.pdf" target="_blank" class="btn gradient modal-btn">See CV</a>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<section class="skills-section" id="skills">
+
+  <div class="skills-sidebar">
+    <h2>Core Areas</h2>
+    <a href="#core">Core Technologies</a>
+    <a href="#fullstack">Full-Stack Development</a>
+    <a href="#frontend">Frontend Development</a>
+    <a href="#backend">Backend Systems & APIs</a>
+    <a href="#data">Data & Databases</a>
+    <a href="#hire">Contact</a>
+  </div>
+
+  <div class="skills-content">
+
+    <!-- ✅ CORE AREA RESTORED EXACTLY -->
+    <div class="skill-block" id="core">
+      <h3>Core Technologies</h3>
+      <p>
+        I specialize in modern development technologies used in real-world software engineering environments. My foundation includes JavaScript, HTML, and CSS for building interactive and responsive user interfaces, along with C# and .NET for building structured backend systems and enterprise-level applications.<br><br>
+
+        I also use Python for automation, scripting, and problem-solving tasks, which allows me to approach development from both frontend and backend perspectives. This combination helps me understand how full systems interact from user input to server processing and data storage.
+      </p>
+    </div>
+
+    <!-- FULLSTACK -->
+    <div class="skill-block" id="fullstack">
+      <h3>Full-Stack Development</h3>
+      <p>
+        I develop complete end-to-end applications that connect frontend interfaces with backend systems and databases. My focus is on building applications that are functional, scalable, and maintainable.<br><br>
+
+        Using Node.js and REST APIs, I ensure smooth communication between client-side applications and backend services. I structure my applications in a modular way so they are easy to expand, debug, and deploy in real-world environments.
+      </p>
+    </div>
+
+    <!-- FRONTEND -->
+    <div class="skill-block" id="frontend">
+      <h3>Frontend Development (UI/UX)</h3>
+      <p>
+        I build modern, responsive, and visually appealing user interfaces using HTML, CSS, and JavaScript. My focus is on clean design, usability, and ensuring that applications work smoothly across all devices and screen sizes.<br><br>
+
+        I pay close attention to layout structure, spacing, typography, and user experience. My goal is to create interfaces that feel intuitive, fast, and visually professional while maintaining strong performance.
+      </p>
+    </div>
+
+    <!-- BACKEND -->
+    <div class="skill-block" id="backend">
+      <h3>Backend Systems & APIs</h3>
+      <p>
+        I design and develop backend systems using Node.js, C#, and .NET frameworks. These systems handle business logic, authentication, data processing, and communication between frontend and databases.<br><br>
+
+        I build RESTful APIs that allow applications to communicate efficiently and securely. My backend approach focuses on performance, structure, scalability, and reliability in production environments.
+      </p>
+    </div>
+
+    <!-- DATA -->
+    <div class="skill-block" id="data">
+      <h3>Data & Databases</h3>
+      <p>
+        I work with both structured and unstructured data using MySQL, SQL Server, and MongoDB. I design database structures that are optimized for performance, scalability, and data integrity.<br><br>
+
+        In addition, I have experience with Power BI and data analysis, allowing me to transform raw data into meaningful insights and visual reports that support decision-making and business intelligence.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= CONTACT (UNCHANGED EXACTLY) ================= -->
+<section class="hire-section" id="hire">
+
+  <div class="hire-container">
+
+    <h2 class="hire-title">Hire David</h2>
+
+    <p class="hire-value">
+      Let’s build something impactful together — I’m ready when you are.
+    </p>
+
+    <div class="hire-status-card">
+      <p>🟢 Available Now</p>
+      <p>⏱️ Response Time: Usually within 24 hours</p>
+      <p>📍 Pretoria, South Africa (Remote Friendly)</p>
+    </div>
+
+    <div class="hire-contact-buttons">
+      <a href="mailto:kgothatsodavisegwapa2003@gmail.com?subject=Hiring Inquiry&body=Hi David,%0A%0AI’d like to work with you." class="btn gradient">
+        Email Me
+      </a>
+
+      <a href="https://wa.me/27795946833" target="_blank" class="btn gradient">
+        WhatsApp
+      </a>
+
+      <a href="https://linkedin.com" target="_blank" class="btn gradient">
+        View LinkedIn
+      </a>
+    </div>
+
+    <!-- SCHEDULE CALL (UNCHANGED EXACTLY) -->
+    <div class="book-call-form-container">
+
+      <form id="callForm" class="book-call-form">
+
+        <h3>Schedule a Call</h3>
+
+        <input type="text" id="callName" placeholder="Your Name" required>
+        <input type="email" id="callEmail" placeholder="Your Email" required>
+
+        <div class="form-row">
+          <input type="date" id="callDate" required>
+          <input type="time" id="callTime" required>
+        </div>
+
+        <button type="submit" class="btn gradient schedule-btn">
+          Schedule Call
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
