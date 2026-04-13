@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | David Segwapa</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="auth-body">
+
+  <div class="auth-container">
+
+    <!-- LOGIN -->
+    <div class="auth-box" id="loginBox">
+
+      <h2>Welcome Back</h2>
+      <p class="auth-subtext">Login to continue to your dashboard</p>
+
+      <input type="email" id="loginEmail" placeholder="Email">
+      <input type="password" id="loginPassword" placeholder="Password">
+
+      <button onclick="login()">Sign In</button>
+
+      <div class="auth-switch">
+        <p>
+          Don’t have an account?
+          <a href="#" onclick="showSignup()">Create account</a>
+        </p>
+      </div>
+
+    </div>
+
+    <!-- SIGNUP -->
+    <div class="auth-box" id="signupBox" style="display:none;">
+
+      <h2>Create Account</h2>
+      <p class="auth-subtext">Join and start building with David</p>
+
+      <input type="text" id="signupName" placeholder="Full Name">
+      <input type="email" id="signupEmail" placeholder="Email">
+      <input type="password" id="signupPassword" placeholder="Password">
+
+      <button onclick="signup()">Create Account</button>
+
+      <div class="auth-switch">
+        <p>
+          Already have an account?
+          <a href="#" onclick="showLogin()">Sign in</a>
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

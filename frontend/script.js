@@ -270,3 +270,169 @@ Looking forward to your response.
     alert("Your request has been prepared in your email app.");
   });
 }
+
+
+// =========================
+// AUTH HELPERS
+// =========================
+
+function isValidEmail(email) {
+  const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+  if (!regex.test(email)) return false;
+
+  const domain = email.split("@")[1].toLowerCase();
+
+  // block common fake/typo domains
+  const blockedDomains = [
+    "gmail.co",
+    "gmal.com",
+    "gmial.com",
+    "yahooo.com",
+    "outlok.com"
+  ];
+
+  if (blockedDomains.includes(domain)) return false;
+
+  // must have at least one dot in domain
+  if (!domain.includes(".")) return false;
+
+  return true;
+}
+
+function isStrongPassword(password) {
+  // 8+ chars, uppercase, lowercase, number
+  return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/.test(password);
+}
+
+// =========================
+// SIGNUP
+// =========================
+function signup() {
+  const name = document.getElementById("signupName").value.trim();
+  const email = document.getElementById("signupEmail").value.trim();
+  const password = document.getElementById("signupPassword").value.trim();
+
+  if (!name || !email || !password) {
+    alert("Please fill in all fields");
+    return;
+  }
+
+  if (!isValidEmail(email)) {
+    alert("Please enter a valid email address");
+    return;
+  }
+
+  if (!isStrongPassword(password)) {
+    alert("Password must be 8+ chars, include uppercase, lowercase, and a number");
+    return;
+  }
+
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+
+  const existingUser = users.find(u => u.email === email);
+  if (existingUser) {
+    alert("Account already exists. Please login.");
+    showLogin();
+    return;
+  }
+
+  const newUser = {
+    name,
+    email,
+    password
+  };
+
+  users.push(newUser);
+  localStorage.setItem("users", JSON.stringify(users));
+
+  alert("Account created successfully!");
+  showLogin();
+}
+
+// =========================
+// LOGIN
+// =========================
+function login() {
+  const email = document.getElementById("loginEmail").value.trim();
+  const password = document.getElementById("loginPassword").value.trim();
+
+  if (!email || !password) {
+    alert("Please fill in all fields");
+    return;
+  }
+
+  if (!isValidEmail(email)) {
+    alert("Please enter a valid email address");
+    return;
+  }
+
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+
+  const user = users.find(u => u.email === email);
+
+  if (!user) {
+    alert("No account found. Please sign up first.");
+    showSignup();
+    return;
+  }
+
+  if (user.password !== password) {
+    alert("Incorrect password");
+    return;
+  }
+
+  // SESSION SYSTEM
+  const session = {
+    name: user.name,
+    email: user.email,
+    loginTime: Date.now()
+  };
+
+  localStorage.setItem("session", JSON.stringify(session));
+
+  window.location.href = "index.html";
+}
+
+// =========================
+// LOGOUT
+// =========================
+function logout() {
+  localStorage.removeItem("session");
+  window.location.href = "login.html";
+}
+
+// =========================
+// PAGE PROTECTION
+// =========================
+if (window.location.pathname.includes("index.html")) {
+  const session = localStorage.getItem("session");
+
+  if (!session) {
+    window.location.href = "login.html";
+  }
+}
+
+// =========================
+// AUTO REDIRECT IF LOGGED IN
+// =========================
+window.addEventListener("load", () => {
+  const session = localStorage.getItem("session");
+
+  if (session && window.location.pathname.includes("login.html")) {
+    window.location.href = "index.html";
+  }
+});
+
+// =========================
+// TOGGLE UI
+// =========================
+function showSignup() {
+  document.getElementById("loginBox").style.display = "none";
+  document.getElementById("signupBox").style.display = "flex";
+}
+
+function showLogin() {
+  document.getElementById("signupBox").style.display = "none";
+  document.getElementById("loginBox").style.display = "flex";
+}
