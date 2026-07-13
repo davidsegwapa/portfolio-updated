@@ -29,7 +29,7 @@ header{
     top:0;
     left:0;
     width:100%;
-    z-index:1000;
+    z-index:3000;
 
     display:flex;
     justify-content:space-between;
@@ -41,6 +41,12 @@ header{
     backdrop-filter:blur(18px);
 
     border-bottom:1px solid #e5e7eb;
+
+    transition:transform .35s ease;
+}
+
+header.hide{
+    transform:translateY(-100%);
 }
 
 .logo{
@@ -58,6 +64,7 @@ nav{
     justify-content:center;
     align-items:center;
     gap:35px;
+    z-index:3001;
 }
 
 nav a{
@@ -83,6 +90,35 @@ nav a:hover{
     font-size:28px;
     color:#1f2937;
     cursor:pointer;
+    z-index:2002;
+}
+
+#overlay{
+    position:fixed;
+    inset:0;
+
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+
+    transition:.3s ease;
+
+    z-index:2500;
+}
+
+#overlay.active{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
+
+body.menu-open{
+    overflow:hidden;
+    touch-action:none;
 }
 
 /* =========================
@@ -486,74 +522,73 @@ header{
     display:block;
 }
 
-.buttons{
-    display:none;
-}
-
 nav{
 
     position:fixed;
 
-    top:75px;
+    top:0;
 
-    right:-100%;
+    right:-280px;
 
-    width:250px;
+    width:260px;
+
+    height:100vh;
 
     background:white;
 
+    display:flex;
+
     flex-direction:column;
+
+    justify-content:center;
 
     align-items:flex-start;
 
-    padding:30px;
+    gap:28px;
 
-    gap:18px;
+    padding-left:35px;
 
-    border-radius:16px 0 0 16px;
+    transition:.35s ease;
 
-    transition:.35s;
+    z-index:2001;
 
-    box-shadow:-10px 0 30px rgba(0,0,0,.08);
+    box-shadow:-15px 0 40px rgba(0,0,0,.12);
 }
 
 nav.active{
-
     right:0;
 }
 
-.hero-name{
+nav a{
+    font-size:18px;
+    width:100%;
+}
 
+.hero-name{
     font-size:46px;
 }
 
 .hero-role{
-
     font-size:24px;
 }
 
 .content p{
-
     font-size:16px;
 }
 
 .skills-section{
-
     flex-direction:column;
 }
 
 .skills-sidebar{
-
     display:none;
 }
 
 .modal-content{
-
     padding:25px;
 }
 
 }
-
 /* ==========================================
    CONTACT / HIRE SECTION (LIGHT MODERN UI)
 ========================================== */
