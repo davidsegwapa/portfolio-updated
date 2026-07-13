@@ -1,68 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>David Segwapa | Full-Stack Software Engineer</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link
+    id="theme-style"
+    rel="stylesheet"
+    href="CSS/styles.css">
 </head>
 
 <body>
-
-<!-- ================= AUTH SCREEN ================= -->
-<div id="authScreen" class="auth-body" style="display:flex;">
-
-  <div class="auth-container">
-
-    <!-- LOGIN -->
-    <div class="auth-box" id="loginBox">
-
-      <h2>Welcome Back</h2>
-      <p class="auth-subtext">Login to continue to your dashboard</p>
-
-      <input type="email" id="loginEmail" placeholder="Email">
-      <input type="password" id="loginPassword" placeholder="Password">
-
-      <button onclick="login()">Sign In</button>
-
-      <div class="auth-switch">
-        <p>
-          Don’t have an account?
-          <a href="#" onclick="showSignup()">Create account</a>
-        </p>
-      </div>
-
-    </div>
-
-    <!-- SIGNUP -->
-    <div class="auth-box" id="signupBox" style="display:none;">
-
-      <h2>Create Account</h2>
-      <p class="auth-subtext">Join and start building with David</p>
-
-      <input type="text" id="signupName" placeholder="Full Name">
-      <input type="email" id="signupEmail" placeholder="Email">
-      <input type="password" id="signupPassword" placeholder="Password">
-
-      <button onclick="signup()">Create Account</button>
-
-      <div class="auth-switch">
-        <p>
-          Already have an account?
-          <a href="#" onclick="showLogin()">Sign in</a>
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-</div>
-
-<!-- ================= MAIN SITE ================= -->
-<div id="mainSite" style="display:none;">
 
 <header>
   <div class="logo">
@@ -76,14 +27,12 @@
     <a href="#about">About</a>
     <a href="#expertise">Expertise</a>
     <a href="#hire">Contact</a>
-
-    <a href="#" onclick="logout()">Logout</a>
-  </nav>
+    
 
   <div id="overlay"></div>
+
   <div class="menu-toggle" id="menu-toggle">☰</div>
 </header>
-
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="content">
@@ -104,7 +53,6 @@
     </div>
   </div>
 
-  <div class="scroll-indicator">↓ Scroll</div>
 </section>
 
 <!-- CV MODAL -->
@@ -129,57 +77,49 @@
     <a href="#frontend">Frontend Development</a>
     <a href="#backend">Backend Systems & APIs</a>
     <a href="#data">Data & Databases</a>
+
+    <!-- FIXED -->
     <a href="#hire">Contact</a>
   </div>
 
   <div class="skills-content">
 
-    <!-- ✅ CORE AREA RESTORED EXACTLY -->
     <div class="skill-block" id="core">
       <h3>Core Technologies</h3>
       <p>
         I specialize in modern development technologies used in real-world software engineering environments. My foundation includes JavaScript, HTML, and CSS for building interactive and responsive user interfaces, along with C# and .NET for building structured backend systems and enterprise-level applications.<br><br>
-
         I also use Python for automation, scripting, and problem-solving tasks, which allows me to approach development from both frontend and backend perspectives. This combination helps me understand how full systems interact from user input to server processing and data storage.
       </p>
     </div>
 
-    <!-- FULLSTACK -->
     <div class="skill-block" id="fullstack">
       <h3>Full-Stack Development</h3>
       <p>
         I develop complete end-to-end applications that connect frontend interfaces with backend systems and databases. My focus is on building applications that are functional, scalable, and maintainable.<br><br>
-
         Using Node.js and REST APIs, I ensure smooth communication between client-side applications and backend services. I structure my applications in a modular way so they are easy to expand, debug, and deploy in real-world environments.
       </p>
     </div>
 
-    <!-- FRONTEND -->
     <div class="skill-block" id="frontend">
       <h3>Frontend Development (UI/UX)</h3>
       <p>
         I build modern, responsive, and visually appealing user interfaces using HTML, CSS, and JavaScript. My focus is on clean design, usability, and ensuring that applications work smoothly across all devices and screen sizes.<br><br>
-
         I pay close attention to layout structure, spacing, typography, and user experience. My goal is to create interfaces that feel intuitive, fast, and visually professional while maintaining strong performance.
       </p>
     </div>
 
-    <!-- BACKEND -->
     <div class="skill-block" id="backend">
       <h3>Backend Systems & APIs</h3>
       <p>
         I design and develop backend systems using Node.js, C#, and .NET frameworks. These systems handle business logic, authentication, data processing, and communication between frontend and databases.<br><br>
-
         I build RESTful APIs that allow applications to communicate efficiently and securely. My backend approach focuses on performance, structure, scalability, and reliability in production environments.
       </p>
     </div>
 
-    <!-- DATA -->
     <div class="skill-block" id="data">
       <h3>Data & Databases</h3>
       <p>
         I work with both structured and unstructured data using MySQL, SQL Server, and MongoDB. I design database structures that are optimized for performance, scalability, and data integrity.<br><br>
-
         In addition, I have experience with Power BI and data analysis, allowing me to transform raw data into meaningful insights and visual reports that support decision-making and business intelligence.
       </p>
     </div>
@@ -187,65 +127,80 @@
   </div>
 </section>
 
-<!-- ================= CONTACT (UNCHANGED EXACTLY) ================= -->
 <section class="hire-section" id="hire">
 
   <div class="hire-container">
 
-    <h2 class="hire-title">Hire David</h2>
+    <h2 class="hire-title">Let's Work Together</h2>
 
     <p class="hire-value">
-      Let’s build something impactful together — I’m ready when you are.
+      I'm available for software development opportunities, freelance work,
+      internships, and collaborations. If you have a project or would like
+      to discuss an opportunity, send me a message below.
     </p>
 
-    <div class="hire-status-card">
-      <p>🟢 Available Now</p>
-      <p>⏱️ Response Time: Usually within 24 hours</p>
-      <p>📍 Pretoria, South Africa (Remote Friendly)</p>
-    </div>
+    <form id="contactForm" class="contact-form">
 
-    <div class="hire-contact-buttons">
-      <a href="mailto:kgothatsodavisegwapa2003@gmail.com?subject=Hiring Inquiry&body=Hi David,%0A%0AI’d like to work with you." class="btn gradient">
-        Email Me
-      </a>
+      <input
+        type="text"
+        id="contactName"
+        placeholder="Your Name"
+        required>
 
-      <a href="https://wa.me/27795946833" target="_blank" class="btn gradient">
-        WhatsApp
-      </a>
+      <input
+        type="email"
+        id="contactEmail"
+        placeholder="Your Email"
+        required>
 
-      <a href="https://linkedin.com" target="_blank" class="btn gradient">
-        View LinkedIn
-      </a>
-    </div>
+      <textarea
+        id="contactMessage"
+        placeholder="Leave your message here..."
+        required></textarea>
 
-    <!-- SCHEDULE CALL (UNCHANGED EXACTLY) -->
-    <div class="book-call-form-container">
+      <button type="submit" class="btn gradient">
+        Send Message
+      </button>
 
-      <form id="callForm" class="book-call-form">
+    </form>
 
-        <h3>Schedule a Call</h3>
+    <div class="contact-icons">
 
-        <input type="text" id="callName" placeholder="Your Name" required>
-        <input type="email" id="callEmail" placeholder="Your Email" required>
+    <a href="mailto:kgothatsodavisegwapa2003@gmail.com"
+       title="Email">
 
-        <div class="form-row">
-          <input type="date" id="callDate" required>
-          <input type="time" id="callTime" required>
-        </div>
+        <i class="fa-solid fa-envelope"></i>
 
-        <button type="submit" class="btn gradient schedule-btn">
-          Schedule Call
-        </button>
+    </a>
 
-      </form>
+    <a href="https://wa.me/27662338824"
+       target="_blank"
+       title="WhatsApp">
 
-    </div>
+        <i class="fa-brands fa-whatsapp"></i>
 
+    </a>
+
+    <a href="https://linkedin.com/in/david-segwapa-05a759346"
+       target="_blank"
+       title="LinkedIn">
+
+        <i class="fa-brands fa-linkedin-in"></i>
+
+    </a>
+
+    <a href="https://github.com/davidsegwapa"
+       target="_blank"
+       title="GitHub">
+
+        <i class="fa-brands fa-github"></i>
+
+    </a>
+
+</div>
   </div>
 
 </section>
-
-</div>
 
 <script src="script.js"></script>
 
