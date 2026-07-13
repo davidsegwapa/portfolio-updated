@@ -45,10 +45,12 @@ navLinks.forEach(link => {
   });
 });
 
-overlay.addEventListener('click', () => {
-  nav.classList.remove('active');
-  overlay.classList.remove('active');
-});
+if (overlay) {
+  overlay.addEventListener('click', () => {
+    nav.classList.remove('active');
+    overlay.classList.remove('active');
+  });
+}
 
 /* ===============================
    SMOOTH SCROLL
@@ -58,7 +60,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     const target = document.querySelector(this.getAttribute('href'));
     if (target) {
       e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
     }
   });
 });
@@ -67,25 +72,36 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
    SCROLL INDICATOR
 =============================== */
 const scrollIndicator = document.querySelector('.scroll-indicator');
+
 window.addEventListener('scroll', () => {
   if (!scrollIndicator) return;
-  scrollIndicator.style.opacity = window.scrollY > 100 ? '0' : '1';
+
+  scrollIndicator.style.opacity =
+    window.scrollY > 100 ? '0' : '1';
 });
 
 /* ===============================
    HERO PARALLAX
 =============================== */
 const hero = document.querySelector('.hero');
+
 window.addEventListener('scroll', () => {
   if (!hero) return;
-  hero.style.backgroundPositionY = window.scrollY * 0.3 + 'px';
+
+  hero.style.backgroundPositionY =
+    window.scrollY * 0.3 + 'px';
 });
 
 /* ===============================
    TYPING ANIMATION
 =============================== */
 const typingEl = document.getElementById("typing");
-const roles = ["Full-Stack Engineer", "Frontend Developer", "Backend Developer"];
+
+const roles = [
+  "Full-Stack Engineer",
+  "Frontend Developer",
+  "Backend Developer"
+];
 
 let roleIndex = 0;
 let charIndex = 0;
@@ -96,7 +112,8 @@ function typeLoop() {
 
   const currentRole = roles[roleIndex];
 
-  typingEl.textContent = currentRole.substring(0, charIndex);
+  typingEl.textContent =
+    currentRole.substring(0, charIndex);
 
   if (!isDeleting) {
     charIndex++;
@@ -119,77 +136,112 @@ function typeLoop() {
 
   setTimeout(typeLoop, speed);
 }
+
 typeLoop();
 
 /* ===============================
    SKILLS ANIMATION
 =============================== */
-const skillBlocks = document.querySelectorAll('.skill-block');
+const skillBlocks =
+  document.querySelectorAll('.skill-block');
 
-const skillObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('show');
+const skillObserver =
+  new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+
+  }, {
+    threshold: 0.2
   });
-}, { threshold: 0.2 });
 
-skillBlocks.forEach(block => skillObserver.observe(block));
+skillBlocks.forEach(block =>
+  skillObserver.observe(block)
+);
 
 /* ===============================
    SIDEBAR ACTIVE LINK
 =============================== */
-const sidebarLinks = document.querySelectorAll('.skills-sidebar a');
+const sidebarLinks =
+  document.querySelectorAll('.skills-sidebar a');
 
 window.addEventListener('scroll', () => {
+
   let current = "";
 
   skillBlocks.forEach(block => {
+
     const rect = block.getBoundingClientRect();
+
     if (rect.top <= 200 && rect.bottom >= 200) {
       current = block.id;
     }
+
   });
 
   sidebarLinks.forEach(link => {
+
     link.classList.remove('active');
+
     if (link.getAttribute('href') === `#${current}`) {
       link.classList.add('active');
     }
+
   });
+
 });
 
 /* ===============================
    BUTTON GLOW
 =============================== */
 document.querySelectorAll('.btn').forEach(btn => {
+
   btn.addEventListener('mouseenter', () => {
-    btn.style.boxShadow = '0 0 18px rgba(0,198,255,0.4)';
+    btn.style.boxShadow =
+      '0 0 18px rgba(0,198,255,0.4)';
   });
 
   btn.addEventListener('mouseleave', () => {
     btn.style.boxShadow = 'none';
   });
+
 });
 
 /* ===============================
    SCROLL PROGRESS BAR
 =============================== */
 window.addEventListener("scroll", () => {
-  const scrollTop = document.documentElement.scrollTop;
-  const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  document.body.style.setProperty("--scroll", (scrollTop / docHeight) * 100 + "%");
+
+  const scrollTop =
+    document.documentElement.scrollTop;
+
+  const docHeight =
+    document.documentElement.scrollHeight -
+    document.documentElement.clientHeight;
+
+  document.body.style.setProperty(
+    "--scroll",
+    (scrollTop / docHeight) * 100 + "%"
+  );
+
 });
 
 /* ===============================
    CV MODAL
 =============================== */
 document.addEventListener('DOMContentLoaded', () => {
+
   const cvBtn = document.getElementById('cvBtn');
   const cvModal = document.getElementById('cvModal');
-  const closeBtn = document.querySelector('.modal .close');
+  const closeBtn =
+    document.querySelector('.modal .close');
 
   if (!cvBtn || !cvModal) return;
 
-  cvBtn.addEventListener('click', (e) => {
+  cvBtn.addEventListener('click', e => {
     e.preventDefault();
     cvModal.style.display = 'flex';
   });
@@ -200,239 +252,91 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  window.addEventListener('click', (e) => {
+  window.addEventListener('click', e => {
     if (e.target === cvModal) {
       cvModal.style.display = 'none';
     }
   });
+
 });
 
 /* ===============================
    BOOK CALL (IMPROVED UX)
 =============================== */
-const bookBtn = document.getElementById("bookCallBtn");
-const form = document.getElementById("bookCallForm");
+const bookBtn =
+  document.getElementById("bookCallBtn");
+
+const form =
+  document.getElementById("bookCallForm");
 
 if (bookBtn && form) {
+
   bookBtn.addEventListener("click", () => {
+
     if (form.style.display === "block") {
+
       form.style.opacity = "0";
+
       setTimeout(() => {
         form.style.display = "none";
       }, 200);
+
     } else {
+
       form.style.display = "block";
+
       setTimeout(() => {
         form.style.opacity = "1";
       }, 50);
+
     }
+
   });
+
 }
 
 /* ===============================
-   FORM → EMAIL (PROFESSIONAL)
+   CONTACT FORM → EMAIL
 =============================== */
-const callForm = document.getElementById("callForm");
+const contactForm = document.getElementById("contactForm");
 
-if (callForm) {
-  callForm.addEventListener("submit", function (e) {
+if (contactForm) {
+
+  contactForm.addEventListener("submit", function (e) {
+
     e.preventDefault();
 
-    const name = document.getElementById("callName").value;
-    const email = document.getElementById("callEmail").value;
-    const date = document.getElementById("callDate").value;
-    const time = document.getElementById("callTime").value;
+    const name = document.getElementById("contactName").value.trim();
+    const email = document.getElementById("contactEmail").value.trim();
+    const message = document.getElementById("contactMessage").value.trim();
 
-    if (!name || !email || !date || !time) {
-      alert("Please fill in all fields.");
+    if (!name || !email || !message) {
+      alert("Please complete all fields.");
       return;
     }
 
-    const subject = `Call Booking Request from ${name}`;
-    const body = `
-Hi David,
+    const subject = `Portfolio Contact - ${name}`;
 
-My name is ${name}
+    const body = `Hi David,
+
+Name: ${name}
 Email: ${email}
 
-I would like to schedule a call on ${date} at ${time}.
+Message:
 
-Looking forward to your response.
-    `;
+${message}
+
+Kind regards,
+${name}`;
 
     window.location.href =
       `mailto:kgothatsodavisegwapa2003@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-    // reset form
-    callForm.reset();
+    contactForm.reset();
 
-    // UX feedback
-    alert("Your request has been prepared in your email app.");
+    alert("Your email has been prepared. Please click Send in your email application.");
+
   });
+
 }
 
-
-// =========================
-// AUTH HELPERS
-// =========================
-
-function isValidEmail(email) {
-  const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-  if (!regex.test(email)) return false;
-
-  const domain = email.split("@")[1].toLowerCase();
-
-  // block common fake/typo domains
-  const blockedDomains = [
-    "gmail.co",
-    "gmal.com",
-    "gmial.com",
-    "yahooo.com",
-    "outlok.com"
-  ];
-
-  if (blockedDomains.includes(domain)) return false;
-
-  // must have at least one dot in domain
-  if (!domain.includes(".")) return false;
-
-  return true;
-}
-
-function isStrongPassword(password) {
-  // 8+ chars, uppercase, lowercase, number
-  return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/.test(password);
-}
-
-// =========================
-// SIGNUP
-// =========================
-function signup() {
-  const name = document.getElementById("signupName").value.trim();
-  const email = document.getElementById("signupEmail").value.trim();
-  const password = document.getElementById("signupPassword").value.trim();
-
-  if (!name || !email || !password) {
-    alert("Please fill in all fields");
-    return;
-  }
-
-  if (!isValidEmail(email)) {
-    alert("Please enter a valid email address");
-    return;
-  }
-
-  if (!isStrongPassword(password)) {
-    alert("Password must be 8+ chars, include uppercase, lowercase, and a number");
-    return;
-  }
-
-  let users = JSON.parse(localStorage.getItem("users")) || [];
-
-  const existingUser = users.find(u => u.email === email);
-  if (existingUser) {
-    alert("Account already exists. Please login.");
-    showLogin();
-    return;
-  }
-
-  const newUser = {
-    name,
-    email,
-    password
-  };
-
-  users.push(newUser);
-  localStorage.setItem("users", JSON.stringify(users));
-
-  alert("Account created successfully!");
-  showLogin();
-}
-
-// =========================
-// LOGIN
-// =========================
-function login() {
-  const email = document.getElementById("loginEmail").value.trim();
-  const password = document.getElementById("loginPassword").value.trim();
-
-  if (!email || !password) {
-    alert("Please fill in all fields");
-    return;
-  }
-
-  if (!isValidEmail(email)) {
-    alert("Please enter a valid email address");
-    return;
-  }
-
-  let users = JSON.parse(localStorage.getItem("users")) || [];
-
-  const user = users.find(u => u.email === email);
-
-  if (!user) {
-    alert("No account found. Please sign up first.");
-    showSignup();
-    return;
-  }
-
-  if (user.password !== password) {
-    alert("Incorrect password");
-    return;
-  }
-
-  // SESSION SYSTEM
-  const session = {
-    name: user.name,
-    email: user.email,
-    loginTime: Date.now()
-  };
-
-  localStorage.setItem("session", JSON.stringify(session));
-
-  window.location.href = "index.html";
-}
-
-// =========================
-// LOGOUT
-// =========================
-function logout() {
-  localStorage.removeItem("session");
-  window.location.href = "login.html";
-}
-
-// =========================
-// PAGE PROTECTION
-// =========================
-if (window.location.pathname.includes("index.html")) {
-  const session = localStorage.getItem("session");
-
-  if (!session) {
-    window.location.href = "login.html";
-  }
-}
-
-// =========================
-// AUTO REDIRECT IF LOGGED IN
-// =========================
-window.addEventListener("load", () => {
-  const session = localStorage.getItem("session");
-
-  if (session && window.location.pathname.includes("login.html")) {
-    window.location.href = "index.html";
-  }
-});
-
-// =========================
-// TOGGLE UI
-// =========================
-function showSignup() {
-  document.getElementById("loginBox").style.display = "none";
-  document.getElementById("signupBox").style.display = "flex";
-}
-
-function showLogin() {
-  document.getElementById("signupBox").style.display = "none";
-  document.getElementById("loginBox").style.display = "flex";
-}

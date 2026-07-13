@@ -106,7 +106,7 @@ nav a:hover {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: url('Images/4k-tech-ulcajgzzc25jlrgi.jpg') no-repeat center/cover;
+  background: url('/frontend/Images/4k-tech-ulcajgzzc25jlrgi.jpg') no-repeat center/cover;
   position: relative;
   padding: 20px;
 }
@@ -453,378 +453,232 @@ body::before {
    HIRE SECTION (UPGRADED PREMIUM UI - FINAL FIXED)
 ========================= */
 
-.hire-section {
-  padding: 140px 5%;
-  display: flex;
-  justify-content: center;
-  background: radial-gradient(circle at top, rgba(0,198,255,0.08), transparent 60%);
+/* =========================
+   CONTACT SECTION
+========================= */
+
+.hire-section{
+    padding:140px 5%;
+    display:flex;
+    justify-content:center;
+    background:radial-gradient(circle at top,
+    rgba(0,198,255,.08),transparent 60%);
 }
 
-.hire-container {
-  max-width: 900px;
-  width: 100%;
-  text-align: center;
-  animation: fadeUp 0.8s ease forwards;
+.hire-container{
+    width:100%;
+    max-width:850px;
+    text-align:center;
 }
 
-/* TITLE */
-.hire-title {
-  font-size: 46px;
-  margin-bottom: 15px;
-  letter-spacing: 1px;
+.hire-title{
+    font-size:46px;
+    margin-bottom:18px;
+    font-weight:700;
 }
 
-/* VALUE TEXT */
-.hire-value {
-  font-size: 17px;
-  line-height: 1.8;
-  color: #d6d6d6;
-  max-width: 750px;
-  margin: 0 auto 25px auto;
-}
-
-/* STATUS CARD */
-.hire-status-card {
-  margin: 25px auto;
-  padding: 18px 20px;
-  max-width: 420px;
-  border-radius: 14px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.35);
-  animation: fadeUp 1s ease forwards;
-}
-
-.hire-status-card p {
-  margin: 6px 0;
-  font-size: 14px;
-  color: #eaeaea;
-}
-
-/* CONTACT BUTTONS */
-.hire-contact-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
-  margin: 35px 0;
-}
-
-.hire-contact-buttons a {
-  transition: 0.3s ease;
-}
-
-.hire-contact-buttons a:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 0 20px rgba(79, 195, 255, 0.35);
+.hire-value{
+    max-width:700px;
+    margin:0 auto 45px;
+    color:#cfcfcf;
+    line-height:1.8;
+    font-size:17px;
 }
 
 /* =========================
-   FORM WRAPPER (CENTERING + SPACING FIX)
+   CONTACT FORM
 ========================= */
 
-.book-call-form-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 40px;
-  padding: 0 20px; /* better side spacing */
+.contact-form{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(14px);
+
+    border-radius:18px;
+
+    padding:35px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+
+    margin-bottom:40px;
 }
 
-/* FORM CARD */
-.book-call-form {
-  width: 100%;
-  max-width: 650px;
-  padding: 34px 30px;
+.contact-form input,
+.contact-form textarea{
 
-  border-radius: 16px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.08);
-  backdrop-filter: blur(14px);
-  box-shadow: 0 10px 35px rgba(0,0,0,0.4);
+    width:100%;
 
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin: 0 auto;
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:12px;
+
+    padding:15px 18px;
+
+    color:white;
+
+    font-size:15px;
+
+    outline:none;
+
+    transition:.3s;
 }
 
-/* FORM TITLE */
-.book-call-form h3 {
-  margin-bottom: 6px;
-  color: #ffffff;
-  font-size: 22px;
+.contact-form textarea{
+
+    min-height:180px;
+
+    resize:vertical;
+
+    line-height:1.7;
 }
 
-/* INPUTS */
-.book-call-form input {
-  width: 100%;
-  padding: 13px 16px;
-  border-radius: 10px;
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
 
-  border: 1px solid rgba(255,255,255,0.08);
-  background: rgba(10,15,28,0.6);
-
-  color: white;
-  caret-color: white;
-
-  outline: none;
-  font-size: 14px;
-  transition: 0.3s ease;
+    color:#a9a9a9;
 }
 
-/* INPUT FOCUS */
-.book-call-form input:focus {
-  border-color: #4fc3ff;
-  box-shadow: 0 0 10px rgba(79,195,255,0.25);
+.contact-form input:focus,
+.contact-form textarea:focus{
+
+    border-color:#00c6ff;
+
+    box-shadow:0 0 15px rgba(0,198,255,.18);
 }
 
-/* DATE + TIME ROW */
-.form-row {
-  display: flex;
-  gap: 14px;
-}
+.contact-form button{
 
-.form-row input {
-  flex: 1;
+    width:220px;
+
+    margin:10px auto 0;
+
+    cursor:pointer;
 }
 
 /* =========================
-   FIX CALENDAR + CLOCK ICON (WHITE)
+   CONTACT ICONS
 ========================= */
 
-input[type="date"],
-input[type="time"] {
-  color-scheme: dark;
+.contact-icons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:28px;
+
+    margin-top:15px;
+
+    flex-wrap:wrap;
 }
 
-/* STRONG ICON FIX */
-input[type="date"]::-webkit-calendar-picker-indicator,
-input[type="time"]::-webkit-calendar-picker-indicator {
-  filter: invert(1) brightness(2);
-  opacity: 1;
-  cursor: pointer;
+.contact-icons a{
+
+    width:65px;
+
+    height:65px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-decoration:none;
+
+    color:white;
+
+    font-size:28px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.35s;
 }
 
-/* BUTTON */
-.schedule-btn {
-  padding: 13px;
-  margin-top: 6px;
+.contact-icons a:hover{
 
-  border-radius: 10px;
-  border: none;
+    transform:translateY(-6px);
 
-  cursor: pointer;
-  background: linear-gradient(90deg, #00c6ff, #0072ff);
-  color: white;
+    color:#00c6ff;
 
-  font-weight: 600;
-  transition: 0.3s ease;
-}
+    border-color:#00c6ff;
 
-.schedule-btn:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 15px rgba(0,198,255,0.3);
-}
-
-/* FINAL CTA */
-.hire-final-cta {
-  margin-top: 40px;
-  font-size: 16px;
-  color: #cfcfcf;
-  font-style: italic;
+    box-shadow:0 0 25px rgba(0,198,255,.25);
 }
 
 /* =========================
-   ANIMATIONS
+   ANIMATION
 ========================= */
 
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
 }
 
 /* =========================
-   MOBILE RESPONSIVE
+   MOBILE
 ========================= */
 
-@media (max-width: 600px) {
-  .hire-title {
-    font-size: 32px;
-  }
+@media(max-width:700px){
 
-  .hire-value {
-    font-size: 15px;
-  }
+    .hire-title{
 
-  .form-row {
-    flex-direction: column;
-  }
+        font-size:34px;
+    }
 
-  .book-call-form {
-    padding: 24px;
-    max-width: 100%;
-  }
+    .hire-value{
+
+        font-size:15px;
+    }
+
+    .contact-form{
+
+        padding:25px;
+    }
+
+    .contact-form button{
+
+        width:100%;
+    }
+
+    .contact-icons{
+
+        gap:18px;
+    }
+
+    .contact-icons a{
+
+        width:58px;
+
+        height:58px;
+
+        font-size:24px;
+    }
+
 }
-
-html {
-  scroll-behavior: smooth;
-}
-
-/* =========================
-   AUTH SYSTEM (PROFESSIONAL UI)
-========================= */
-
-.auth-body {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  background: radial-gradient(circle at top, rgba(0,198,255,0.12), transparent 60%),
-              #0a0f1c;
-  font-family: 'Poppins', sans-serif;
-}
-
-/* CONTAINER */
-.auth-container {
-  width: 100%;
-  max-width: 420px;
-  padding: 20px;
-}
-
-/* CARD */
-.auth-box {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  backdrop-filter: blur(14px);
-
-  padding: 40px 30px;
-  border-radius: 16px;
-
-  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-
-  text-align: center;
-
-  animation: fadeUp 0.6s ease;
-}
-
-/* TITLES */
-.auth-box h2 {
-  font-size: 28px;
-  color: #ffffff;
-  margin-bottom: 5px;
-}
-
-.auth-subtext {
-  font-size: 14px;
-  color: #cfcfcf;
-  margin-bottom: 10px;
-}
-
-/* INPUTS */
-.auth-box input {
-  width: 100%;
-  padding: 12px 14px;
-
-  border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.08);
-
-  background: rgba(10,15,28,0.6);
-  color: white;
-
-  outline: none;
-  transition: 0.3s ease;
-}
-
-.auth-box input:focus {
-  border-color: #4fc3ff;
-  box-shadow: 0 0 10px rgba(79,195,255,0.25);
-}
-
-/* BUTTON */
-.auth-box button {
-  padding: 12px;
-  border-radius: 10px;
-  border: none;
-
-  cursor: pointer;
-
-  background: linear-gradient(90deg, #00c6ff, #0072ff);
-  color: white;
-
-  font-weight: 600;
-  transition: 0.3s ease;
-}
-
-.auth-box button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 18px rgba(0,198,255,0.35);
-}
-
-/* SWITCH TEXT */
-.auth-switch {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #cfcfcf;
-}
-
-.auth-switch a {
-  color: #4fc3ff;
-  text-decoration: none;
-  font-weight: 600;
-  margin-left: 5px;
-  transition: 0.3s;
-}
-
-.auth-switch a:hover {
-  color: #00c6ff;
-  text-decoration: underline;
-}
-
-/* ANIMATION */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* MOBILE */
-@media (max-width: 500px) {
-  .auth-box {
-    padding: 30px 20px;
-  }
-}
-
-.logout-btn {
-  margin-left: 10px;
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.3);
-  color: white;
-  padding: 10px 18px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.logout-btn:hover {
-  background: rgba(255,255,255,0.1);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
-}
-

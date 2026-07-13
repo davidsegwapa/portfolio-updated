@@ -6,7 +6,11 @@
   <title>David Segwapa | Full-Stack Software Engineer</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link
+    id="theme-style"
+    rel="stylesheet"
+    href="CSS/styles.css">
 </head>
 
 <body>
@@ -23,10 +27,7 @@
     <a href="#about">About</a>
     <a href="#expertise">Expertise</a>
     <a href="#hire">Contact</a>
-
-<!-- 🔥 MOBILE LOGOUT (INSIDE SIDEBAR) -->
-<a href="#" class="mobile-logout" onclick="logout()">Logout</a>
-  </nav>
+    
 
   <div id="overlay"></div>
 
@@ -52,7 +53,6 @@
     </div>
   </div>
 
-  <div class="scroll-indicator">↓ Scroll</div>
 </section>
 
 <!-- CV MODAL -->
@@ -127,60 +127,79 @@
   </div>
 </section>
 
-<!-- HIRE SECTION -->
 <section class="hire-section" id="hire">
 
   <div class="hire-container">
 
-    <h2 class="hire-title">Hire David</h2>
+    <h2 class="hire-title">Let's Work Together</h2>
 
     <p class="hire-value">
-      Let’s build something impactful together — I’m ready when you are.
+      I'm available for software development opportunities, freelance work,
+      internships, and collaborations. If you have a project or would like
+      to discuss an opportunity, send me a message below.
     </p>
 
-    <div class="hire-status-card">
-      <p>🟢 Available Now</p>
-      <p>⏱️ Response Time: Usually within 24 hours</p>
-      <p>📍 Pretoria, South Africa (Remote Friendly)</p>
-    </div>
+    <form id="contactForm" class="contact-form">
 
-    <div class="hire-contact-buttons">
-      <a href="mailto:kgothatsodavisegwapa2003@gmail.com?subject=Hiring Inquiry&body=Hi David,%0A%0AI’d like to work with you." class="btn gradient">
-        Email Me
-      </a>
+      <input
+        type="text"
+        id="contactName"
+        placeholder="Your Name"
+        required>
 
-      <a href="https://wa.me/27795946833?text=Hi%20David,%20I'm%20interested%20in%20working%20with%20you" target="_blank" class="btn gradient">
-        WhatsApp
-      </a>
+      <input
+        type="email"
+        id="contactEmail"
+        placeholder="Your Email"
+        required>
 
-      <a href="https://linkedin.com/in/david-segwapa-05a759346" target="_blank" class="btn gradient">
-        View LinkedIn
-      </a>
-    </div>
+      <textarea
+        id="contactMessage"
+        placeholder="Leave your message here..."
+        required></textarea>
 
-    <div class="book-call-form-container">
+      <button type="submit" class="btn gradient">
+        Send Message
+      </button>
 
-      <form id="callForm" class="book-call-form">
+    </form>
 
-        <h3>Schedule a Call</h3>
+    <div class="contact-icons">
 
-        <input type="text" id="callName" placeholder="Your Name" required>
-        <input type="email" id="callEmail" placeholder="Your Email" required>
+    <a href="mailto:kgothatsodavisegwapa2003@gmail.com"
+       title="Email">
 
-        <div class="form-row">
-          <input type="date" id="callDate" required>
-          <input type="time" id="callTime" required>
-        </div>
+        <i class="fa-solid fa-envelope"></i>
 
-        <button type="submit" class="btn gradient schedule-btn">
-          Schedule Call
-        </button>
+    </a>
 
-      </form>
+    <a href="https://wa.me/27662338824"
+       target="_blank"
+       title="WhatsApp">
 
-    </div>
+        <i class="fa-brands fa-whatsapp"></i>
 
+    </a>
+
+    <a href="https://linkedin.com/in/david-segwapa-05a759346"
+       target="_blank"
+       title="LinkedIn">
+
+        <i class="fa-brands fa-linkedin-in"></i>
+
+    </a>
+
+    <a href="https://github.com/davidsegwapa"
+       target="_blank"
+       title="GitHub">
+
+        <i class="fa-brands fa-github"></i>
+
+    </a>
+
+</div>
   </div>
+
 </section>
 
 <script src="script.js"></script>
